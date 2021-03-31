@@ -58,12 +58,22 @@ RSpec.configure do |config|
   end
 
   # TODO: some state is leaking at some point in test DB initialization
-  config.before(:suite) { purgue_databases }
+  config.before(:suite) do
+    Timeout.timeout(60) do
+      purgue_databases
+    end
+  end
 
-  config.before { CartoDB::UserModule::DBService.any_instance.stubs(:create_ghost_tables_event_trigger) }
+  config.before do
+    Timeout.timeout(60) do
+      CartoDB::UserModule::DBService.any_instance.stubs(:create_ghost_tables_event_trigger)
+    end
+  end
 
   config.after do
-    Delorean.back_to_the_present
-    purgue_databases
+    Timeout.timeout(60) do
+      Delorean.back_to_the_present
+      purgue_databases
+    end
   end
 end
