@@ -7,6 +7,7 @@ require 'database_cleaner/active_record'
 require 'support/database_cleaner'
 require 'support/message_broker_stubs'
 require 'support/shared_entities_spec_helper'
+require 'timeout'
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 raise %(Cannot run tests in an env other than 'test', RAILS_ENV=#{Rails.env}) unless Rails.env.test?
@@ -40,6 +41,13 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include SharedEntitiesSpecHelper
   config.mock_with :mocha
+
+  # Make tests timeout if they take longer than 1 min each
+  config.around do |example|
+    Timeout.timeout(60) do
+      example.run
+    end
+  end
 
   # TODO: some state is leaking at some point in test DB initialization
   config.before(:suite) { purgue_databases }
