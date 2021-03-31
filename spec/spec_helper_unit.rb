@@ -49,6 +49,14 @@ RSpec.configure do |config|
     end
   end
 
+  # TODO: deleteme
+  config.before do
+    puts "RTORRE Starting example #{example.full_description}"
+  end
+  config.after do
+    puts "RTORRE Finishing example #{example.full_description}"
+  end
+
   # TODO: some state is leaking at some point in test DB initialization
   config.before(:suite) { purgue_databases }
 
