@@ -12,7 +12,7 @@ defaults: &defaults
   mandatory_keys:     [layer_opts, sql_api, varnish_management, redis, session_domain]
   session_domain:     'carto.pelo.tech'
   # If activated, urls will use usernames in format //SESSION_DOMAIN/user/USERNAME and ignore subdomains if present
-  subdomainless_urls: false
+  subdomainless_urls: true
   http_port:           3000 # nil|integer. HTTP port to use when building urls. Leave empty to use default (80)
   https_port:          # nil|integer. HTTPS port to use when building urls. Leave empty to use default (443)
   # Setting this to true will enable ActiveController's enforcement of SSL.
