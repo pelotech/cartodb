@@ -40,29 +40,29 @@ defaults: &defaults
     filter: 'mapnik'
     internal:
       protocol:      'http'
-      domain:        'localhost.lan'
+      domain:        'carto.pelo.tech'
       port:          '8181'
       host:          '127.0.0.1'
       verifycert:     false
     private:
       protocol:      'http'
-      domain:        'localhost.lan'
+      domain:        'carto.pelo.tech'
       port:          '8181'
       verifycert:     false
     public:
       protocol:      'http'
-      domain:        'localhost.lan'
+      domain:        'carto.pelo.tech'
       port:          '8181'
       verifycert:     false
   sql_api:
     private:
       protocol:   'http'
-      domain:     'localhost.lan'
+      domain:     'carto.pelo.tech'
       endpoint:   '/api/v1/sql'
       port:       8080
     public:
       protocol:   'http'
-      domain:     'localhost.lan'
+      domain:     'carto.pelo.tech'
       endpoint:   '/api/v2/sql'
       port:       8080
   api_requests_service_url: ''
@@ -209,7 +209,7 @@ defaults: &defaults
     # secondary:
     #   host: '127.0.0.1'
   org_metadata_api:
-    host: 'localhost.lan'
+    host: 'carto.pelo.tech'
     port: '3000'
     username: "extension"
     password: "elephant"
