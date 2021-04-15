@@ -10,7 +10,7 @@ defaults: &defaults
     memory_limit:
   debug_assets: true
   mandatory_keys:     [layer_opts, sql_api, varnish_management, redis, session_domain]
-  session_domain:     'carto.pelo.tech'
+  session_domain:     'REPLACE_ME'
   # If activated, urls will use usernames in format //SESSION_DOMAIN/user/USERNAME and ignore subdomains if present
   subdomainless_urls: true
   http_port:           3000 # nil|integer. HTTP port to use when building urls. Leave empty to use default (80)
@@ -22,7 +22,7 @@ defaults: &defaults
   secret_key_base:    '65903fa751affcdd71a9eb09308bcb404c50c8df03414db849ea22fbe8d4aae9ff344f6594630eb9c8367b4fd8ed2211d0342a49df473dccc27ae0be120b25ab'
   # It's recommended to generate a new password_secret (pepper for password encryption) for each installation using `bundle exec rake secret`
   password_secret:    'cc914bbbfa1d7156ec1424260d3a3214f3d1720aae872c1a5887f918929d0fec6f048d708f1ca79b4e43d20b4b623726e656917c9b8f2de0ea6c18e2ee80ce89'
-  account_host:       'carto.pelo.tech:3000'
+  account_host:       'REPLACE_ME:3000'
   # Here you can define other hosts different to account_host that also will be CORS enabled
   # cors_enabled_hosts:
   #   - example.com
@@ -40,29 +40,29 @@ defaults: &defaults
     filter: 'mapnik'
     internal:
       protocol:      'http'
-      domain:        'carto.pelo.tech'
+      domain:        'REPLACE_ME'
       port:          '8181'
       host:          '127.0.0.1'
       verifycert:     false
     private:
       protocol:      'http'
-      domain:        'carto.pelo.tech'
+      domain:        'REPLACE_ME'
       port:          '8181'
       verifycert:     false
     public:
       protocol:      'http'
-      domain:        'carto.pelo.tech'
+      domain:        'REPLACE_ME'
       port:          '8181'
       verifycert:     false
   sql_api:
     private:
       protocol:   'http'
-      domain:     'carto.pelo.tech'
+      domain:     'REPLACE_ME'
       endpoint:   '/api/v1/sql'
       port:       8080
     public:
       protocol:   'http'
-      domain:     'carto.pelo.tech'
+      domain:     'REPLACE_ME'
       endpoint:   '/api/v2/sql'
       port:       8080
   api_requests_service_url: ''
@@ -209,7 +209,7 @@ defaults: &defaults
     # secondary:
     #   host: '127.0.0.1'
   org_metadata_api:
-    host: 'carto.pelo.tech'
+    host: 'REPLACE_ME'
     port: '3000'
     username: "extension"
     password: "elephant"
